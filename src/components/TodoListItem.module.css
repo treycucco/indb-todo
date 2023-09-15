@@ -1,8 +1,9 @@
 .container {
   width: 400px;
+  max-width: 100%;
   border: 1px solid #aaa;
   border-radius: 8px;
-  margin: 16px 0;
+  margin-bottom: 16px;
   padding: 16px;
 
   :is(hgroup) {
