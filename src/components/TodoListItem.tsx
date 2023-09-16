@@ -28,6 +28,8 @@ const TodoListItem = ({ list }: TodoListItemProps) => {
 
   const handleDeleteList = useCallback(() => {
     if (confirm('Are you sure you want to delete this list?')) {
+      // TODO: Delete linked todos as well. Either provide a `deleteIndex`, or make a way to have
+      //       foreign-key like functionality where things are deleted automatically?
       void database.delete('lists', listId);
     }
   }, [listId]);
