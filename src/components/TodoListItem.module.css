@@ -11,10 +11,18 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 8px;
 
     :is(h2, h3) {
       padding: 0;
       margin: 0;
     }
   }
+}
+
+.controls {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }

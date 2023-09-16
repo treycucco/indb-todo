@@ -13,23 +13,9 @@ const compareTodos = (left: Todo, right: Todo) =>
 const TodosList = ({ listId }: TodosListProps) => {
   const {
     data: { ids: todoIds, index: todosIndex },
-    add,
     update,
     remove,
   } = useSlice('todos', compareTodos, 'listId', listId);
-
-  const handleAdd = useCallback(() => {
-    const title = prompt('What do you want to do?');
-
-    if (title) {
-      void add({
-        id: crypto.randomUUID(),
-        listId,
-        title,
-        createdAt: Date.now(),
-      });
-    }
-  }, [add, listId]);
 
   const handleEdit = useCallback(
     (todo: Todo) => {
@@ -52,9 +38,6 @@ const TodosList = ({ listId }: TodosListProps) => {
           onComplete={remove}
         />
       ))}
-      <button type="button" onClick={handleAdd}>
-        Add Todo
-      </button>
     </>
   );
 };
