@@ -1,4 +1,4 @@
-import { useSlice } from '../store';
+import { database, useSlice } from '../store';
 import type { Todo } from '../store';
 import TodoItem from './TodoItem';
 import { useCallback } from 'react';
@@ -11,22 +11,22 @@ const compareTodos = (left: Todo, right: Todo) =>
   right.createdAt - left.createdAt;
 
 const TodosList = ({ listId }: TodosListProps) => {
-  const {
-    data: { ids: todoIds, index: todosIndex },
-    update,
-    remove,
-  } = useSlice('todos', compareTodos, 'listId', listId);
+  const { ids: todoIds, index: todosIndex } = useSlice('todos', compareTodos, {
+    path: 'listId',
+    value: listId,
+  });
 
-  const handleEdit = useCallback(
-    (todo: Todo) => {
-      const title = prompt('What do you want to do?', todo.title);
+  const handleEdit = useCallback((todo: Todo) => {
+    const title = prompt('What do you want to do?', todo.title);
 
-      if (title) {
-        void update(todo.id, { title });
-      }
-    },
-    [update],
-  );
+    if (title) {
+      void database.update('todos', todo.id, { title });
+    }
+  }, []);
+
+  const handleComplete = useCallback((todoId: string) => {
+    void database.delete('todos', todoId);
+  }, []);
 
   return (
     <>
@@ -35,7 +35,7 @@ const TodosList = ({ listId }: TodosListProps) => {
           todo={todosIndex[todoId]}
           key={todoId}
           onEdit={handleEdit}
-          onComplete={remove}
+          onComplete={handleComplete}
         />
       ))}
     </>

@@ -14,8 +14,8 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "@indb/database": "^0.1.1",
-    "@indb/react": "^0.1.1",
+    "@indb/database": "^0.2.0",
+    "@indb/react": "^0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

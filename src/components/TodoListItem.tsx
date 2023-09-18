@@ -11,7 +11,7 @@ interface TodoListItemProps {
 
 const TodoListItem = ({ list }: TodoListItemProps) => {
   const { id: listId } = list;
-  const itemsCount = useCount('todos', 'listId', list.id);
+  const itemsCount = useCount('todos', { path: 'listId', value: list.id });
 
   const handleAddTodo = useCallback(() => {
     const title = prompt('What do you want to do?');
