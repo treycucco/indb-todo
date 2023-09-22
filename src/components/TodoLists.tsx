@@ -1,12 +1,12 @@
 import { database, useSlice } from '../store';
 import type { List } from '../store';
 import TodoListItem from './TodoListItem';
-import { useCallback } from 'react';
+import { useCallback } from 'preact/hooks';
 
 const compareLists = (left: List, right: List) =>
   left.name.localeCompare(right.name);
 
-const TodoListsList = () => {
+const TodoLists = () => {
   const { ids: listIds, index: listsIndex } = useSlice('lists', compareLists);
 
   const handleAdd = useCallback(() => {
@@ -37,4 +37,4 @@ const TodoListsList = () => {
   );
 };
 
-export default TodoListsList;
+export default TodoLists;

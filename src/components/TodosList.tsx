@@ -1,7 +1,7 @@
 import { database, useSlice } from '../store';
 import type { Todo } from '../store';
 import TodoItem from './TodoItem';
-import { useCallback } from 'react';
+import { useCallback } from 'preact/hooks';
 
 interface TodosListProps {
   listId: string;
@@ -10,7 +10,7 @@ interface TodosListProps {
 const compareTodos = (left: Todo, right: Todo) =>
   right.createdAt - left.createdAt;
 
-const TodosList = ({ listId }: TodosListProps) => {
+const Todos = ({ listId }: TodosListProps) => {
   const { ids: todoIds, index: todosIndex } = useSlice('todos', compareTodos, {
     path: 'listId',
     value: listId,
@@ -42,4 +42,4 @@ const TodosList = ({ listId }: TodosListProps) => {
   );
 };
 
-export default TodosList;
+export default Todos;

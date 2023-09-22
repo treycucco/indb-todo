@@ -1,5 +1,5 @@
 import type { SchemaDefinition } from '@indb/database';
-import { createStore } from '@indb/react';
+import { createStore } from '@indb/preact';
 
 export interface Todo {
   listId: string;

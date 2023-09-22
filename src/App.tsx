@@ -1,8 +1,8 @@
 import './App.css';
-import TodoListsList from './components/TodoListsList';
+import TodoLists from './components/TodoLists';
 
 function App() {
-  return <TodoListsList />;
+  return <TodoLists />;
 }
 
 export default App;

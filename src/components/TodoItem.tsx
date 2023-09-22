@@ -1,6 +1,6 @@
 import type { Todo } from '../store';
 import styles from './TodoItem.module.css';
-import { useCallback } from 'react';
+import { useCallback } from 'preact/hooks';
 
 interface TodoItemProps {
   todo: Todo;

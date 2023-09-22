@@ -1,8 +1,8 @@
 import { database, useCount } from '../store';
 import type { List } from '../store';
 import styles from './TodoListItem.module.css';
-import TodosList from './TodosList';
-import { useCallback } from 'react';
+import Todos from './TodosList';
+import { useCallback } from 'preact/hooks';
 
 interface TodoListItemProps {
   list: List;
@@ -40,7 +40,7 @@ const TodoListItem = ({ list }: TodoListItemProps) => {
         <h2>{list.name}</h2>
         <h3>{itemsCount}</h3>
       </hgroup>
-      <TodosList listId={listId} />
+      <Todos listId={listId} />
       <div className={styles.controls}>
         <button type="button" onClick={handleAddTodo}>
           Add Todo

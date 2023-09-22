@@ -6,26 +6,25 @@
   "version": "0.0.0",
   "scripts": {
     "build": "tsc && vite build",
+    "check": "npm run test:typecheck && npm run test:prettier && npm run test:eslint",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "typecheck": "tsc",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "preview": "vite preview",
+    "test:eslint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "test:prettier": "prettier --check src/",
+    "test:typecheck": "tsc"
   },
   "dependencies": {
     "@indb/database": "^0.2.0",
-    "@indb/react": "^0.2.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "@indb/preact": "^0.2.0",
+    "preact": "^10.16.0"
   },
   "devDependencies": {
+    "@preact/preset-vite": "^2.5.0",
     "@trivago/prettier-plugin-sort-imports": "^4.2.0",
-    "@types/react": "^18.2.15",
-    "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
-    "@vitejs/plugin-react": "^4.0.3",
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
